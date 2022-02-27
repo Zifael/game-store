@@ -1,0 +1,135 @@
+
+.basket {
+    display: flex;
+    padding-top: 220px;
+    padding-left: 27px;
+    height:  auto;  
+    padding-bottom: 72px;   
+}
+
+.basket__title {    
+    font-size: 40px;
+    color: #fff;
+    margin-bottom: 40px;
+}
+
+.basket__block {
+    display: block;
+}
+
+.basket__product {
+    display: flex;    
+    justify-content: space-between;
+    width: 809px;
+    height: 204px;
+    background: #2A6EAC;
+    border-radius: 10px;
+    margin-top: 14px;
+}
+
+.basket__gameAndImg {
+    display: flex;
+}
+
+.basket__game {
+    width: 115px;
+    height: 160px;
+    background: #C4C4C4;
+    border-radius: 10px;
+    margin-top: 16px;
+    margin-left: 25px;
+}
+
+.basket__game__info {
+    display: inline-block;
+    color: white;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-right: 13px;
+}
+
+.basket__nameGame {
+   color: white;   
+   margin-left: 18px;
+   padding-top: 63px;
+}
+
+.basket__priceGame {
+    margin-bottom: 116px;
+}
+
+.basket__delet__game {
+    cursor: pointer;
+}
+
+/* Basket price */
+
+.basket__price {
+    margin-top: 27px;
+    width: 809px;
+    height: 140px;
+    background: #2A6EAC;
+    border-radius: 10px;
+    padding-top: 9px;
+    padding-left: 58px;
+}
+
+.basket__price__taxes__block {
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+}
+
+.basket__price__taxes {
+    margin-right: 50px;
+}
+
+.basket__price__sum__total__block {
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+}
+
+.basket__price__sum__total {
+    margin-right: 20px;
+}
+
+.basket__price__button {
+    width: 200px;
+    height: 40px;
+    background: #FCFF61;
+    border-radius: 10px;
+    margin-top: 30px;
+    margin-left: 540px;
+    border: none;
+}
+
+/*  Top sellers */
+
+.basket__topSellers {
+    width: 316px;
+    height: 591px;
+    background: #2A6EAC;
+    border-radius: 10px;
+    margin-top: 88px;
+    margin-left: 8px;
+    padding-top: 16px;
+    padding-left: 22px;
+}
+
+.basket__topSellers__title {
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.basket__topSellers__game__img {
+    margin-top: 35px;
+    width: 269px;
+    height: 60px;
+    background: #C4C4C4;
+}
+
+.basket__topSellers__game__price {
+    margin-top: 17px;
+    color: white;
+}

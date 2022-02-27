@@ -1,0 +1,34 @@
+.drawer {
+    position: absolute;
+    left: 1047px;
+    top: 124px;
+    background: rgba(22, 20, 20, 0.7);
+    width: 330px;
+    height: 650px;
+    padding: 38px 14px;
+    border-radius: 10px 0 10px 10px;
+}
+
+.drawer__title__сategories {
+    color: white;
+    font-size: 16px;    
+    text-transform: uppercase;
+}
+
+.drawer__сategories__descriptions {
+    list-style-type: none;
+    margin-top: 12px;    
+    padding: 0    
+}
+
+.drawer__descriptions {
+    margin-top: 12px;
+    font-size: 16px;    
+    color: #6B83FF;
+    cursor: pointer;
+}
+
+.drawer__title__genre {
+    color: white;
+    font-size: 16px;
+}

@@ -1,0 +1,107 @@
+.MainPage__header {
+    padding-top: 85px;
+    display: flex;     
+}
+
+.MainPage__search {
+    display: flex;
+    margin-left: 14px; 
+    margin-right: 174px;
+}
+
+.MainPage__input {
+    width: 173px;
+    height: 31px;  
+    padding-left: 18px;  
+    border-radius: 10px;
+    background: #FFFFFF;
+    border: none;
+    margin-right: 14px;       
+}
+
+.MainPage__img__search {
+    width: 31px;
+    height: 31px;    
+}
+
+.MainPage__main__text {
+    font-size: 64px;
+    line-height: 75px;
+    color: #fff;
+    margin-right: 334px;
+}
+
+.MainPage__img__burgerMenu {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+/* Top Game  */
+
+.MainPage__top__game {
+    display: flex;
+    padding-left: 30px;
+    margin-top: 100px;
+}
+
+.MainPage__top__game__img {
+    width: 194px;
+    height: 466px;
+    margin-right: 16px;
+    object-fit:cover;
+    cursor: pointer;
+}
+
+/*  Game  */
+
+.MainPage__game {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 21px;
+    margin-top: 91px;    
+}
+
+.MainPage__block__game {
+    margin-right: 90px;
+    max-width: 200px;
+}
+
+.MainPage__game__img {
+    width: 200px;
+    height: 200px;
+    object-fit:cover;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.MainPage__game__name {
+    display: flex;
+    justify-content: center;
+    color: white;
+    margin: 6px 53px;
+}
+
+.MainPage__game__genres {
+    display: flex;    
+    justify-content: center;
+    text-align: center;
+}
+
+.MainPage__Game__genre {
+    margin-right: 4px;  
+    color: white;
+    margin-bottom: 0;    
+}
+
+.MainPage__Game__genre:nth-child(n + 4) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.MianPage__game__price {
+    display: flex;
+    justify-content: center;
+    color: white;
+}
