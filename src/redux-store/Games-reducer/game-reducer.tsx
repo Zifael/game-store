@@ -1,7 +1,7 @@
 import { iGame, iInintalState } from "./type-gameState/type-gameState"
 
 const SET_ONE_GAME = 'SET_ONE_GAME'
-
+const SET_GAME_GENRE = 'SET_GAME_GENRE'
 
 const inintalState: iInintalState  = {   
     game:[
@@ -21,7 +21,7 @@ const inintalState: iInintalState  = {
                 {id: 4, img:'https://i.playground.ru/p/8J7htFCCJYCngsWuKhMznA.jpeg'},
                 {id: 5, img:'https://img2.wtftime.ru/store/2020/06/18/6144k4WA.jpg'},
             ],
-            bestGameImg: 'https://s3-alpha-sig.figma.com/img/f8e8/0988/5ba77bb85a64ddd9f22fc89f69851d42?Expires=1646611200&Signature=Y93V3nvaU0CM2djO~TP1a-yGXYwv-E0DNXPB4V1PYC2v~j1zzz9glZcJrd4O8Z1vDfNmiPrOIlZmtzjdb8REiJI3CRndf6Wm3kDS3zIaFGs89nRUHP1znQur7Mo6yn1P0NKftI2SkQiXISMe~s8gVr3ovQg6nZ4oiSPm-Ml-nYmVERRI~~DML2lcYBE4ES~2E8AmDIVBT7iaczymrV2hxXa8XceMkkwT3xjvQngp4Mnx9srMSBQUKSNt-VLDLiOutrMDwRMo3n7kyBGheoRikrNMcUWGQeicMe81~0iloYi8W5dxfLNVL5SfKi5j5drSmmT-Q0W3t8EqCe1dPuYmgg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
+            bestGameImg: 'https://i.pinimg.com/originals/21/78/9f/21789fa4cd6b75b2e7f964ad607cc360.jpg',
             img: 'https://sun9-22.userapi.com/impf/0ZBAaqDgTKIJsyyJUyn2A3UJ6K66C1sC5PGHFA/d1alSjxnuaI.jpg?size=0x0&quality=90&proxy=1&sign=6daac845c103f6e4af126a4eed8182fe&c_uniq_tag=R5GifeRtcdSLnNSyiSkcHm3R8HxCQeMPSdBXbYxqGRk&type=video_thumb',            
         },
         {
@@ -40,7 +40,7 @@ const inintalState: iInintalState  = {
                 {id: 4, img:'https://i.playground.ru/p/DOCtvBRNLLx4QI1U116Z3Q.jpeg'},
                 {id: 5, img:'https://gameguru.ru/media/f/screens/3/23/17/28/7777.jpg'},
             ], 
-            bestGameImg: 'https://s3-alpha-sig.figma.com/img/3742/a6bd/b8f35ce5e072355ffbf21fbadb60c578?Expires=1646611200&Signature=DbHRlaYEiAbgc7AL6EMpn0K93EMh70cpOCv5B9Z-9lMTJrZv3pwh2rIqx-~om1IAv4szCLOTMpZGCcwtPOQN5AMK6fqLkJYAAg0A~~pxDiDmdWaVT9vpTVQr9a06cs0QRa11XsqwS6vQm6Wr6YWf18yqpbdU1dAvfbLtdl4LDg1q8cIVKjyFjqwaZsrr~l1YbTFgGGKr252cYQCqx~KzZOjJPz9We75C~gxnrU7AFugefvw4TcI3eqVZSEWX6ygYP6TRNhvW8WerMUma40khVWAts0-f3k71pDY61tCG87pGqOZ92jSs03yiIYt~oqKeyq6XEwfADHSTHTc2RGzF7A__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
+            bestGameImg: 'https://avatarfiles.alphacoders.com/250/thumb-1920-250447.jpg',
             img: 'https://images.stopgame.ru/uploads/images/484543/form/2018/04/13/1523637822.jpg',
         },
         {
@@ -89,7 +89,7 @@ const inintalState: iInintalState  = {
             developer: 'BANDAI NAMCO Studios Inc',
             publisher: 'BANDAI NAMCO Entertainment',
             releaseDate: [10, 'Sep', 2021],
-            genres: ['Шутер', 'Экшен', 'Приключение'],
+            genres: ['Шутер', 'Экшен',],
             searchGameImg: 'https://difmark.com/images/product/0/7/70050/tales-of-arise-pc_orig_1.jpg',
             infoGameImg: [
                 {id: 1, img:'https://gameguru.ru/media/f/screens/3/24/97/39/7777.jpg'},
@@ -102,18 +102,27 @@ const inintalState: iInintalState  = {
             img: 'https://pbs.twimg.com/media/EK5bXycWkAAMPE0.jpg'
         },     
     ],
-    gameOne: null
+    gameOne: null,
+    gameGenre: [],
 }
 
 
-const gameReducer = (state = inintalState, action: any) => {                
+const gameReducer = (state = inintalState, action: any) => {         
+    
     switch(action.type) {
-        case SET_ONE_GAME :            
+        case SET_ONE_GAME:            
             return {            
                 ...state,
                 gameOne: state.game.find(game => game.id === action.id)
             }
-        default : 
+        case SET_GAME_GENRE:
+            return {
+                ...state,
+                gameGenre: state.game.filter(e => 
+                    e.genres.some(e => e.toLowerCase() === action.genre.toLowerCase())
+                )
+            }
+        default: 
             return state
         
     }
@@ -121,5 +130,8 @@ const gameReducer = (state = inintalState, action: any) => {
 
 
 export const setOneGame = (id: number) => ({type: SET_ONE_GAME, id})
+export const setGameGenre = (genre: string) => ({type: SET_GAME_GENRE, genre})
 
 export default gameReducer
+
+

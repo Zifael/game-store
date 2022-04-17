@@ -133,3 +133,14 @@
     margin-top: 17px;
     color: white;
 }
+
+.noGameInBacket {
+    width: 809px;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 50px;
+    font-weight: 500;
+}

@@ -3,7 +3,7 @@ interface iInfoGameImg {
     img: string
 }
 
- export interface iGame {
+ export interface iGame {    
     id: number,
     nameGame: string,
     price: number,
@@ -15,11 +15,13 @@ interface iInfoGameImg {
     bestGameImg: string,
     searchGameImg: string,
     infoGameImg: Array<iInfoGameImg>,
+    length?: number
 }
 
 
 export interface iInintalState {
     game : Array<iGame>,
-    gameOne: any
+    gameOne: any,
+    gameGenre: any
 }
 

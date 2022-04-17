@@ -1,10 +1,14 @@
 import React from "react";
 import { Container } from "react-bootstrap";
+import { useSelector } from "react-redux";
+import { gamesInBasket } from "../../Components/Selectors/Selectors";
 import './BasketPage.css'
 
 const BasketPage = () => {
 
-    const gameBasket = [
+    const gameBasket = useSelector(gamesInBasket)
+
+    const f = [
         {id:1, nameGame: 'nameGame', price: 1500, img: 'null'},
         {id:2, nameGame: 'nameGame', price: 1000, img: 'null'}, 
     ]
@@ -16,33 +20,41 @@ const BasketPage = () => {
         {id:4, price: 1500, img: 'null'},
     ]
 
+
+
     return (
         <Container className='basket'>           
             <div className='basket__block'>
                 <h2 className='basket__title'>Моя Корзина</h2>
-                {gameBasket.map(game => 
-                    <div key={game.id} className='basket__product'>
-                        <div className='basket__gameAndImg'>
-                            <img className='basket__game' src={game.img} />
-                            <div className='basket__nameGame'>{game.nameGame}</div>
+                {gameBasket !== null ? <div>
+                    {gameBasket.map((game: { id: React.Key | null | undefined; img: string | undefined; nameGame: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined; price: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined; }) => 
+                        <div key={game.id} className='basket__product'>
+                            <div className='basket__gameAndImg'>
+                                <img className='basket__game' src={game.img} />
+                                <div className='basket__nameGame'>{game.nameGame}</div>
+                            </div>
+                            <div className='basket__game__info'>
+                                <div className='basket__priceGame'>{game.price} руб.</div>                            
+                                <div className='basket__delet__game'>Удалить</div>
+                            </div>
+                        </div>    
+                    )}
+                    <div className='basket__price'>
+                        <div className='basket__price__taxes__block'>
+                            <div className='basket__price__taxes__text'>Налоги</div>
+                            <div className='basket__price__taxes'>10 %</div>
                         </div>
-                        <div className='basket__game__info'>
-                            <div className='basket__priceGame'>{game.price} руб.</div>                            
-                            <div className='basket__delet__game'>Удалить</div>
+                        <div className='basket__price__sum__total__block'>
+                            <div>Общая сумма</div>
+                            <div className='basket__price__sum__total'>2250 руб.</div>
                         </div>
-                    </div>    
-                )}
-                <div className='basket__price'>
-                    <div className='basket__price__taxes__block'>
-                        <div className='basket__price__taxes__text'>Налоги</div>
-                        <div className='basket__price__taxes'>10 %</div>
+                        <button className='basket__price__button'>Купить</button>
                     </div>
-                    <div className='basket__price__sum__total__block'>
-                        <div>Общая сумма</div>
-                        <div className='basket__price__sum__total'>2250 руб.</div>
-                    </div>
-                    <button className='basket__price__button'>Купить</button>
-                </div>
+                </div> 
+                : 
+                <div className='noGameInBacket'>
+                    Корзина Пуста
+                </div>}
             </div>
             <div className='basket__topSellers'>
                 <div className='basket__topSellers__title'>Лидеры продаж</div>

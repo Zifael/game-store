@@ -1,0 +1,88 @@
+.genre__game__title {
+    display: flex;
+    margin-left: 260px;
+    padding-top: 100px;
+    margin-bottom: 20px;
+    color: #fff;    
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.genre__game__block {    
+    margin: 0 auto;
+    width: 60%;
+    height: 100vh;
+}
+
+.genre__game {
+    display: flex;
+    height: 120px;
+    margin-bottom: 10px;
+    border: 1px solid #fff;
+    justify-content: space-between;
+    border-radius: 5px;
+}
+
+.genre__game__img {
+    width: 200px;
+    height: auto;
+    background: #ccc;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.genre__game__description__block {
+    display: flex;
+}
+
+.genre__game__description {
+    margin-left: 20px;
+}
+
+.genre__game__description__title {
+    margin-top: 7px;
+    margin-bottom: 10px;    
+    font-size: 20px;    
+    text-transform: uppercase;
+}
+
+.genre__game__description__genre__block {
+    display: flex;
+    color: #fff;
+    margin-top: 27px;
+}
+
+.genre__game__description__genre {
+    margin-right: 3px;
+}
+
+.genre__game__releaseDate__block {
+    display: flex;
+    color: #fff   
+}
+
+.genre__game__releaseDate {
+    margin-right: 5px;   
+}
+
+.genre__game__buy__block {
+    display: flex;
+    margin-top: 65px;
+    margin-right: 5px;
+    align-items: center;  
+    margin-bottom: 20px;  
+}
+
+.genre__game__price {
+   
+   color:#fff;
+}
+
+.genre__game__button {
+    background-color: rgb(17, 158, 17);
+    border-radius: 2px;
+    border: 0;
+    color: #fff;
+    padding: 7px;
+    margin-left: 10px;
+}

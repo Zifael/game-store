@@ -1,8 +1,14 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import './BurgerMenu.css'
 
 const BurgerMenu = () => {
 
+    const navigate = useNavigate()
+    const arrCategories = ['Новинки', 'Лидеры продаж', 'Скидки', 'Скоро выйдут']
+    const arrGenres = ['Приключение', 'Экшен', 'Симулятор', 'Стратегия', 'Гонки', 'Инди', 'ММО', 'Спортивная игра']
+    
+    
     return (
         <div className='drawer'>
             <div className='drawer__title__сategories'>Категории</div>
@@ -14,14 +20,9 @@ const BurgerMenu = () => {
             </ul>
             <div className='drawer__title__genre'>Поиск по жанру</div>
             <ul className='drawer__сategories__descriptions'>
-                <li className='drawer__descriptions'>Приключение</li>
-                <li className='drawer__descriptions'>Экшен</li>
-                <li className='drawer__descriptions'>Симулятор</li>
-                <li className='drawer__descriptions'>Стратегия</li>
-                <li className='drawer__descriptions'>Гонки</li>
-                <li className='drawer__descriptions'>Инди</li>
-                <li className='drawer__descriptions'>ММО</li>
-                <li className='drawer__descriptions'>Спортивная игра</li>
+                {arrGenres.map(genre => 
+                    <li onClick={() => navigate(`/genre/${genre}`)} className='drawer__descriptions'>{genre}</li>
+                )}
             </ul>
         </div>
     )

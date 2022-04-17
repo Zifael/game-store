@@ -4,7 +4,7 @@
     height: auto;
     left: 372px;
     top: 116px;
-    
+    cursor: pointer;
     background: rgba(22, 20, 20, 0.98);
     padding-left: 12px;
     padding-top: 16px;
@@ -17,16 +17,14 @@
     object-fit:cover;
 }
 
-.search__game__nameGame {
-    color: white;
-    margin-left: 5px;
+
+.search__game__nameGame__price {
+    margin-left: 8px;
+    color:white
+
 }
 
-.search__game__price {
-    color: white;
-}
-
-.search__game__block {
+.search__game__block {    
     margin-top: 13px;
     display: flex;
     margin-bottom: 11px;

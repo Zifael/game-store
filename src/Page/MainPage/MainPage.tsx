@@ -1,27 +1,24 @@
-import React, { FC, useState } from 'react'
+import React, { useState } from 'react'
 import { Container } from 'react-bootstrap';
 import './MainPage.css'
 import imgSearch from '../../Img/imgSearch.png'
 import imgBurgerMenu from '../../Img/burgerMenu.png'
 import BurgerMenu from '../../Components/BurgrerMenu/BurgerMenu';
 import Search from '../../Components/Search/Search';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import {games} from '../../Components/Selectors/Selectors'
 import { useNavigate } from 'react-router-dom';
-import { iGame } from '../../redux-store/Games-redux/type-gameState/type-gameState';
+import { iGame } from '../../redux-store/Games-reducer/type-gameState/type-gameState';
 
 
 
 
 const MainPage = () => {
 
-    const game = useSelector(games)   
-    
-
+    const game = useSelector(games)
     const navigate = useNavigate()
 
-    const clickOneGame = (gameOne: iGame) => {
-                     
+    const clickOneGame = (gameOne: iGame) => {                     
         navigate(`/game/${gameOne.id}`)        
     }
      
@@ -32,7 +29,7 @@ const MainPage = () => {
     return (
         <Container>
             {!burgerMenuOff && <BurgerMenu />}
-            {valueSearch !== '' && <Search />}            
+            {valueSearch && <Search game={game.filter(game => game.nameGame.toLowerCase().includes(valueSearch.toLowerCase()))} />}         
             <header className='MainPage__header'>
                 <div className='MainPage__search'>                    
                     <input 
@@ -51,7 +48,11 @@ const MainPage = () => {
             </header>
             <div className='MainPage__top__game'>
                 {game.map(topGame => 
-                    <img className='MainPage__top__game__img' key={topGame.id} src={topGame.bestGameImg} alt={topGame.nameGame}/>    
+                    <img className='MainPage__top__game__img' 
+                        key={topGame.id} 
+                        onClick={() => navigate(`/game/${topGame.id}`)}
+                        src={topGame.bestGameImg} alt={topGame.nameGame}
+                    />    
                 )}
             </div>
             <div className='MainPage__game'>

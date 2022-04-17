@@ -1,10 +1,12 @@
 import {combineReducers, createStore} from 'redux'
-import gameReducer from './Games-redux/game-reducer'
+import gameReducer from './Games-reducer/game-reducer'
+import GameInBasketReducer from './gamesInBasket-reducer/gamesInBasket-reducer'
 
 
 
 const rootReducer = combineReducers({
-    gameState : gameReducer
+    gameState : gameReducer,
+    gamesInBasket: GameInBasketReducer
 })
 
 export type iRootReducer = ReturnType<typeof rootReducer>
