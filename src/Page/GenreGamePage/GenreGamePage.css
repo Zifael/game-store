@@ -1,7 +1,15 @@
+.genre__game__header {
+    display: flex;
+    justify-content: right;
+    align-items: center;   
+    padding-top: 80px; 
+    padding-left: 200px;
+    padding-right: 200px;
+}
 .genre__game__title {
     display: flex;
     margin-left: 260px;
-    padding-top: 100px;
+    margin-top: 60px;
     margin-bottom: 20px;
     color: #fff;    
     font-weight: 300;
@@ -81,6 +89,25 @@
 .genre__game__button {
     background-color: rgb(17, 158, 17);
     border-radius: 2px;
+    border: 0;
+    color: #fff;
+    padding: 7px;
+    margin-left: 10px;
+}
+
+
+.genre__game__addButton {  
+    background-color: rgb(10, 1, 132);
+    border-radius: 5px;
+    border: 0;
+    color: #fff;
+    padding: 7px;
+    margin-left: 10px;
+}
+
+.genre__game__removeButton {
+    background-color: rgb(49, 49, 49);
+    border-radius: 5px;
     border: 0;
     color: #fff;
     padding: 7px;

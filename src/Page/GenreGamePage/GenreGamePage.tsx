@@ -1,10 +1,15 @@
 import React, { useEffect } from 'react'
 import { Container } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
-import { gamesGenres } from '../../Components/Selectors/Selectors'
+import { useNavigate, useParams } from 'react-router-dom'
+import { gamesGenres, gamesInBasket } from '../../Components/Selectors/Selectors'
 import { setGameGenre } from '../../redux-store/Games-reducer/game-reducer'
 import './GenreGamePage.css'
+import gameStoreImg from '../../Img/game-store.png'
+import LinkToBasketIcon from '../../Components/LinkToBasketIcon/LinkToBasketIcon'
+import { iGame } from '../../redux-store/Games-reducer/type-gameState/type-gameState'
+import { AppDispatch } from '../../redux-store/redux'
+import { removeGameInBasket, setGameInBasket } from '../../redux-store/gamesInBasket-reducer/gamesInBasket-reducer'
 
 interface UserParams {
     genreGame: string
@@ -12,15 +17,22 @@ interface UserParams {
 
 const GenreGamePage = () => {
     const {genreGame} = useParams<keyof UserParams>() as UserParams 
+    const navigate = useNavigate()
 
-    const dispatch = useDispatch()    
+    const dispatch = useDispatch<AppDispatch>()    
     useEffect(() => {
         dispatch( setGameGenre(genreGame) ) 
-    }, []) 
+    }, [])        
 
-       
-    const gameGenre = useSelector(gamesGenres)
-    console.log(gameGenre)
+    const gameGenre = useSelector(gamesGenres) 
+    const gameInBasket = useSelector(gamesInBasket)
+    
+    const addGameInBasket = (game: iGame) => {
+        dispatch( setGameInBasket(game))
+    }
+    const removeGameFromBasket = (id: number) => {
+        dispatch( removeGameInBasket(id))
+    }
 
     if(gameGenre.length === 0) {
         return <h1>Игры в данном жанре не найдены</h1>
@@ -28,6 +40,9 @@ const GenreGamePage = () => {
 
     return (
         <Container>
+            <div className='genre__game__header'>                
+                <LinkToBasketIcon /> 
+            </div>
             <h2 className='genre__game__title'>{genreGame}</h2>
             <div className='genre__game__block'>
                 {gameGenre && gameGenre.map((gameGenre: any) => 
@@ -50,7 +65,10 @@ const GenreGamePage = () => {
                         </div>
                         <div className='genre__game__buy__block'>                            
                             <div className='genre__game__price'>{gameGenre.price} руб.</div>
-                            <button className='genre__game__button'>Добавить в корзину</button>
+                            {gameInBasket.some(gb => gb.id === gameGenre.id) 
+                                ? <button onClick={() => removeGameFromBasket(gameGenre.id)} className='genre__game__removeButton'>Убрать из корзины</button>
+                                : <button onClick={() => addGameInBasket(gameGenre)} className='genre__game__addButton'>Добавить в корзину</button>                            
+                            }                            
                         </div>
                     </div>
                 )}

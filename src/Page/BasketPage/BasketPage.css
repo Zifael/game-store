@@ -1,10 +1,29 @@
-
 .basket {
-    display: flex;
-    padding-top: 220px;
+    padding-top: 125px;
+    width: auto;
     padding-left: 27px;
     height:  auto;  
-    padding-bottom: 72px;   
+    padding-bottom: 72px;
+}
+
+.basket__header {    
+    padding-left: 40px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.basket__back__to__main {
+    height: 100px;
+    width: 100px;
+    cursor: pointer;
+}
+
+.basket__content {
+    display: flex;   
+    justify-content: center;
 }
 
 .basket__title {    

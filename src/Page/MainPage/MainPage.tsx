@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux';
 import {games} from '../../Components/Selectors/Selectors'
 import { useNavigate } from 'react-router-dom';
 import { iGame } from '../../redux-store/Games-reducer/type-gameState/type-gameState';
+import LinkToBasketIcon from '../../Components/LinkToBasketIcon/LinkToBasketIcon';
 
 
 
@@ -29,7 +30,11 @@ const MainPage = () => {
     return (
         <Container>
             {!burgerMenuOff && <BurgerMenu />}
-            {valueSearch && <Search game={game.filter(game => game.nameGame.toLowerCase().includes(valueSearch.toLowerCase()))} />}         
+            {valueSearch &&
+                <Search 
+                    game={game.filter(game => game.nameGame.toLowerCase().includes(valueSearch.toLowerCase()))}                    
+                />
+            }            
             <header className='MainPage__header'>
                 <div className='MainPage__search'>                    
                     <input 
@@ -40,6 +45,7 @@ const MainPage = () => {
                     <img className='MainPage__img__search' src={imgSearch} />
                 </div>
                 <div className='MainPage__main__text'>Game store</div>
+                <LinkToBasketIcon />
                 <img 
                     className='MainPage__img__burgerMenu' 
                     onClick={() => setBurgerMenuOff(prev => !prev)} 

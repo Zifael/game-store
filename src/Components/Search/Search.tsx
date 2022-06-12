@@ -5,7 +5,7 @@ import './Search.css'
 
 
 interface isss {
-    game: Array<iGame>
+    game: Array<iGame>,    
 }
 
 const Search = ({game} : isss) => {  
@@ -17,19 +17,23 @@ const Search = ({game} : isss) => {
     }
 
     return (
-        <div className='search'>
-           {game.map((game, index) => 
-                <div key={game.id} onClick={() => clickOneGame(game.id)}>
-                    <div className='search__game__block'>
-                        <img className='search__game__img' src={game.img}/>
-                        <div className='search__game__nameGame__price'>
-                            <div className='search__game__nameGame'>{game.nameGame}</div>
-                            <div className='search__game__price'>{game.price} руб.</div>
+        <div className='search'> 
+            {game.length !== 0 ?
+           <div>        
+                {game.map((game, index) => 
+                    <div key={game.id} onClick={() => clickOneGame(game.id)}>
+                        <div className='search__game__block'>
+                            <img className='search__game__img' src={game.img}/>
+                            <div className='search__game__nameGame__price'>
+                                <div className='search__game__nameGame'>{game.nameGame}</div>
+                                <div className='search__game__price'>{game.price} руб.</div>
+                            </div>
                         </div>
+                        {game.length! - 1 === index ?  '' :  <div className='search__line'></div>} 
                     </div>
-                    {game.length! - 1 === index ?  '' :  <div className='search__line'></div>} 
-                </div>
-            )}
+                )}
+            </div>    
+            : <div className='search__noGame'>игр с данным названием не найдены</div>}
         </div>
     )
 }

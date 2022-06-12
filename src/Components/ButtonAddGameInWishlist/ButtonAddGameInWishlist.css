@@ -1,0 +1,27 @@
+.wishListButton {
+    width: 364px;
+    height: 30px;
+    border: 1px solid #FFFFFF;
+    background: none;
+    box-sizing: border-box;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    line-height: 19px;
+    text-transform: uppercase;
+    margin-bottom: 27px;
+}
+
+.removeWishlistButton {
+    width: 364px;
+    height: 30px;
+    background-color: rgb(49, 49, 49);
+    border: none;
+    box-sizing: border-box;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    line-height: 19px;
+    text-transform: uppercase;
+    margin-bottom: 27px;
+}

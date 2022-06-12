@@ -59,7 +59,7 @@ const inintalState: iInintalState  = {
                 {id: 4, img:'https://www.igromagaz.ru/upload/iblock/b5a/ss_363d9c05ee0a974b766938610a3352e7a89b9c92.1920x1080.jpg'},
                 {id: 5, img:'https://games.mail.ru/hotbox/content_files/gallery/2021/04/14/ec4654566e864ac98872af3213031051.jpg'},
             ], 
-            bestGameImg: 'https://s3-alpha-sig.figma.com/img/0469/152f/3f8139e8c38035cd7d39d364454b2c46?Expires=1646611200&Signature=Y~ebvGLXsFJqTNfaqbBnf1nVdTs11ndVlqc161Jj2XGAjD7aJzxmOj4kedYsNeivxEF2OSps9K1ZzWNdOuEZzccj22AuxvURH1wxGIbFelvqIoBd~1qjfxfACY7HiMvOHCa8aXRne~8sqdOXnhjNjFj8j4Jsq1IwzWq7f61RziGoTW-T9mTIiLZ~cjspNSA5kcQnbctZv22IFm0YdNeETkaya-jR-Kh9U~Ll~QgEHGFewtYwdxPBgLu3QpkXiP13k6Wl2twY7D8Ta~2D2GwQALc0Wti9ayqvowsdjUIxT73WyMLXblaWZ67DUWWT-Fj9SHxOg9lNUXp6Z2Vn39f5ng__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
+            bestGameImg: 'https://upload.wikimedia.org/wikipedia/ru/2/24/%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0_Resident_Evil_Village.jpg',
             img: 'https://vgtimes.ru/uploads/posts/2020-12/thumbs/1608291825_fxla3l-jrapl5z6fjfbw6a.jpeg'
         },
 
@@ -79,7 +79,7 @@ const inintalState: iInintalState  = {
                 {id: 4, img:'https://images.wallpapersden.com/image/download/hitman-3-ps5_bGZnZ2yUmZqaraWkpJRqZmdlrWdtbWU.jpg'},
                 {id: 5, img:'https://cdn.igromania.ru/mnt/news/1/7/d/3/5/3/101659/0a79fedbe2c23e38_1200xH.jpg'},
             ],  
-            bestGameImg: 'https://s3-alpha-sig.figma.com/img/5d6c/b75a/96acdaa30caf4f37b2833d97a8ad33fc?Expires=1646611200&Signature=gFNupqUYhcSrRcx1cDzFbtkde4r3ahuiED~3Rc555qNgQvcHwOyGvJN1ND8nDf~CjzsjayOTuYHBj7OhRkvvFqR3MJZglSymrhZg--Ewov-DrtLtD3v-Q8GPo-6veeHJarNzlX5Urle2DhTTpysMYBNt67pFiwerMWFeSzj--AsO7ey7dAdMr8VxYmun5ToqQdM78gwIeEEQFtu7hw2v6ugLmHUcoyqIexTFWbtdOHRWfY50UobyOrI~oO3VuVS-FPtbhnylnjrGqKvE9jvFNiVyi9aH8kPrOTHSdhyQID-UGGbVoMsqLoLIEzLJ0T0PNoAlhASgMZ5dwqoov-TXTw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
+            bestGameImg: 'https://cdn1.epicgames.com/ed55aa5edc5941de92fd7f64de415793/offer/EGS_HITMAN3_IOInteractiveAS_S2-1200x1600-b285fb6eb586113c9479ff33ed646b69.jpg',
             img: 'https://i.playground.ru/p/ta_DQMj-8qKMrR9fUivL8Q.jpeg'
         },
         {
@@ -98,8 +98,8 @@ const inintalState: iInintalState  = {
                 {id: 4, img:'https://vgtimes.ru/uploads/gallery/main/170903/1622574647_6420.jpeg'},
                 {id: 5, img:'https://vulcan.dl.playstation.net/ap/rnd/202104/0110/mX2TmrS8RkyZth2skmHeszPk.jpg'},
             ],
-            bestGameImg: 'https://s3-alpha-sig.figma.com/img/d069/01a6/1e4008287edfc0324a2b1bdb41aa324d?Expires=1646611200&Signature=BvEyDjfh8qoXOU~uF9rAw9t-KjTR~kMrXFchZheQjHuM-Is-UKD~ya6BKWffxEJNgGCh3DMIa1wA4oDXYuKzMQWv1IqFgapO0sXvOMzswrjSYOm39Q7wrUNKzMjbry0yycRmU5N7FlcNk708wk1fl~9o5ynHEZe3tGKpOP3eE9IE6fCXW5V4uC67eCz9GgK2TBan9-KcJqdA2u3zQO~o7YweYFVT-QfbtcHIhWvEmB9~nNBUet5buyRODAFmatH753hngmr1cxyjKsYSKdN~TL9JAwiItW1mpKeSkm1TWGX22ULzonbq~0Goz~LjH0KZGUeXzLb8lumeYkvm2fnkOw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
-            img: 'https://pbs.twimg.com/media/EK5bXycWkAAMPE0.jpg'
+            bestGameImg: 'https://upload.wikimedia.org/wikipedia/ru/9/9b/Tales_of_Arise_cover.jpg',
+            img: 'https://difmark.com/images/product/0/7/70050/tales-of-arise-pc_orig_1.jpg'
         },     
     ],
     gameOne: null,

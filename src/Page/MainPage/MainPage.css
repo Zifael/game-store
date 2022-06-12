@@ -28,14 +28,16 @@
     font-size: 64px;
     line-height: 75px;
     color: #fff;
-    margin-right: 334px;
+    margin-right: 270px;
 }
 
 .MainPage__img__burgerMenu {
     width: 40px;
     height: 40px;
-    cursor: pointer;
+    cursor: pointer;   
 }
+
+
 
 /* Top Game  */
 
@@ -63,7 +65,7 @@
 }
 
 .MainPage__block__game {
-    margin-right: 90px;
+    margin-right: 85px;
     max-width: 200px;
 }
 

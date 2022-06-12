@@ -37,3 +37,12 @@
     margin-right: 9px;
 }
 
+.search__noGame {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color:rgb(82, 24, 227);
+    font-size: 24px;
+}

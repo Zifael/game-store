@@ -1,0 +1,49 @@
+.NavBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: auto;
+    width: 100%;
+    background: rgba(247, 247, 247, 0.7);
+}
+
+.NavBar__icons {
+    width: 40px;
+    height: 40px; 
+    margin: 10px;  
+    cursor: pointer; 
+}
+
+.NavBar__left {
+    display: flex;
+    align-items: center;
+}
+
+.NavBar__linkToMain {
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    color: rgb(28, 28, 28);
+    margin: 0 20px;
+}
+
+.NavBar__linkToMain:hover {
+    color:white;
+}
+
+.NavBar__right {
+    display: flex;
+    align-items: center;
+}
+
+.NavBar__wishlist {
+    margin-right: 20px;
+    text-decoration: none;   
+    font-size: 16px;
+    font-weight: 600; 
+    color: rgb(28, 28, 28);    
+}
+
+.NavBar__wishlist:hover {
+    color: white;
+}
