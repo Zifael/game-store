@@ -1,4 +1,4 @@
-import {combineReducers, createStore} from 'redux'
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import gameReducer from './Games-reducer/game-reducer'
 import GameInBasketReducer from './gamesInBasket-reducer/gamesInBasket-reducer'
 import GameInWishlistReducer from './gamesInWishlist-reducer/gamesInWishlist-reducer'
@@ -16,7 +16,9 @@ const rootReducer = combineReducers({
 export type iRootReducer = ReturnType<typeof rootReducer>
 export type AppDispatch = typeof store.dispatch
 
-const store = createStore(rootReducer)
+const store = configureStore({
+    reducer: rootReducer
+})
 
 
 export default store

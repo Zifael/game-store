@@ -16,7 +16,7 @@ interface UserParams {
 }
 
 const OneGamePage = () => { 
-
+    
     const {id} = useParams<keyof UserParams>() as UserParams
 
     const dispatch = useDispatch<AppDispatch>()             

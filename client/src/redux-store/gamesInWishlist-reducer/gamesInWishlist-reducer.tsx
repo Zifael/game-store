@@ -1,3 +1,4 @@
+import { createSlice } from "@reduxjs/toolkit"
 import { iGame } from "../Games-reducer/type-gameState/type-gameState"
 
 const SET_GAME_IN_WISHLIST = 'SET_GAME_IN_WISHLIST'
@@ -7,31 +8,23 @@ interface initialState {
     gamesInWishlist: Array<iGame>
 }
 
-const inintalState: initialState = {
-    gamesInWishlist: []
-}
 
-const GameInWishlistReducer = (state = inintalState, action: any) => {
-    switch(action.type){
-        case SET_GAME_IN_WISHLIST:
-            const haveGame = state.gamesInWishlist.some(game => game.id === action.game.id)       
-            console.log(state.gamesInWishlist)      
-            return {
-                ...state,
-                gamesInWishlist: haveGame === false ? [...state.gamesInWishlist, action.game] : state.gamesInWishlist
 
-            }
-        case REMOVE_GAME_FROM_WISHLIST:
-            return {
-                ...state,
-                gamesInWishlist: state.gamesInWishlist.filter(game => game.id !== action.id)
-            }
-        default:
-            return state
+const GameInWishlistReducer = createSlice({
+    name: 'GameInWishlistReducer',
+    initialState: {
+        gamesInWishlist: []
+    } as initialState,
+    reducers: {
+        setGameInWishlist(state, action) {
+            const haveGame = state.gamesInWishlist.some(game => game.id === action.payload.id)
+            state.gamesInWishlist =  haveGame === false ? [...state.gamesInWishlist, action.payload] : state.gamesInWishlist
+        },
+        removeGameFromWishlist(state, action) {
+            state.gamesInWishlist = state.gamesInWishlist.filter(game => game.id !== action.payload)
+        }
     }
-}
+})
 
-export const setGameInWishlist = (game: iGame) => ({type: SET_GAME_IN_WISHLIST, game})
-export const removeGameFromWishlist = (id: number) => ({type: REMOVE_GAME_FROM_WISHLIST, id})
-
-export default GameInWishlistReducer
+export const {removeGameFromWishlist, setGameInWishlist} = GameInWishlistReducer.actions
+export default GameInWishlistReducer.reducer
