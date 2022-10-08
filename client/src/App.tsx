@@ -10,18 +10,7 @@ import Routers from './Components/Router/Routers';
 function App() {
   
   
-  const getJwt = async () => {
-    const {data} = await axios.get(`/token`)  
-    console.log(data)
-  }
-  getJwt()
-
-
-  const getFood = async () => {
-    const {data} = await axios.get('/food')
-    console.log(data)
-  }
-  getFood()
+ 
   return (
     <div className="App">
       <NavBar />

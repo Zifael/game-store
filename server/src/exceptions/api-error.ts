@@ -1,6 +1,6 @@
 export class ApiError extends Error {
     readonly status;
-    readonly errors;
+    readonly errors
 
     constructor(status: number, message?: string, errors?: Array<string>) {
         super(message)
@@ -14,5 +14,9 @@ export class ApiError extends Error {
 
     static BadRequest(message: string, errors: Array<string> = []) {
         return new ApiError(400, message, errors)
+    }
+
+    static invalidValidation(message: string) {
+        return new ApiError(400, message)
     }
 }

@@ -1,4 +1,4 @@
-import { IPayload } from "../types/types";
+import { IPayload } from "../types/user/types";
 
 
 export class UserDto {    

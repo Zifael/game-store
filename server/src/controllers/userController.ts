@@ -1,50 +1,75 @@
-import { IPayload, IReqRegistationOrLogin, TypeRequestBody, typeResponse } from "../types/types"
-import bcrypt from 'bcrypt'
+import { TypeRequestBody } from "../types/types"
+import { IReqCookie, IReqRegistationOrLogin } from "../types/user/types"
 import model from "../models/models"
-import { tokenService } from "../service/token-service"
-import { UserDto } from "../dto/user-dto"
-import { NextFunction } from "express"
-import { UserService } from "../service/user-service"
+import { NextFunction, Response } from "express"
+import UserService from "../service/user-service"
+import { ApiError } from "../exceptions/api-error"
 
-const {User, Role} = model
+
+const {User, Role, Token} = model
 
 class UserController {
-    async registration(req: TypeRequestBody<IReqRegistationOrLogin>, res: typeResponse, next: NextFunction) {
+    async registration(req: TypeRequestBody<IReqRegistationOrLogin>, res: Response, next: NextFunction) {
         try {
             const {email, password} = req.body
 
             // return object { user: email, roleId, refreshToken, accessToken}
             const userData = await UserService.registration(email, password)            
             // add token in cookie
-            res.cookie('refreshToken', userData.refreshToken, {httpOnly: true})            
+            res.cookie('refreshToken', userData.refreshToken, {maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true})            
             res.json(userData)
         } catch (error) {            
             next(error)
         }       
     }
-    async login(req: TypeRequestBody<IReqRegistationOrLogin>, res: any, next: NextFunction) {
+    async login(req: TypeRequestBody<IReqRegistationOrLogin>, res: Response, next: NextFunction) {
         try {
             const {email, password} = req.body
-
-            const user = await User.findOne({where: {email}})
-            if (!user) {
-                return res.status(404).json('User not found')
-            }
-                        
-            // Decrypts the password and returns true if the password matches from the database
-            const hasPassword = bcrypt.compareSync(password!, user!.password)        
-            if (!hasPassword) {
-                return res.status(404).json('Invalid password')                
-            }             
-            res.status(200).json('Login was successful')
+            
+            const userData = await UserService.login(email, password)
+            res.cookie('refreshToken', userData.refreshToken, {maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true})
+            res.json(userData)
         } catch (error) {
             next(error)
         }
     }
-    async auth(req: any, res: any, next: any) {
-       
+
+    async logout(req: IReqCookie, res: Response, next: NextFunction) {        
         try {
-            const users = await Role.findAll({include: {model: User}})
+            const {refreshToken} = req.cookies     
+            if (!refreshToken) {
+                throw ApiError.UnauthorizedError()
+            }     
+            // Clear cookies and remove a refreshToken from the db             
+            UserService.logout(refreshToken)
+            res.clearCookie('refreshToken')
+            return res.json({message: 'exit completed successfully'})
+        } catch (error) {
+            next(error)
+        }
+    }
+
+    async refresh(req: IReqCookie, res: Response, next: NextFunction) {
+        try {
+            const {refreshToken} = req.cookies            
+            const userData = await UserService.refresh(refreshToken)
+            res.cookie('refreshToken', userData.refreshToken, {maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true})
+            res.json(userData)
+        } catch (error) {
+            next(error)
+        }
+    }
+
+    async auth(req: any, res: any, next: any) {       
+        try {
+            const users = await User.findAll({include: [
+                {
+                    model: Role
+                },
+                {
+                    model: Token
+                }
+            ]})
             res.json(users)
         } catch (error) {
             next(error)

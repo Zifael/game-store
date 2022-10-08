@@ -23,7 +23,10 @@ const PORT = process.env.PORT || 7000;
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use((0, cookie_parser_1.default)());
-app.use((0, cors_1.default)());
+app.use((0, cors_1.default)({
+    credentials: true,
+    origin: process.env.CLIENT_URL
+}));
 app.use('/', routers_1.default);
 app.use(middleware_error_1.middlewareError);
 const start = () => __awaiter(void 0, void 0, void 0, function* () {
